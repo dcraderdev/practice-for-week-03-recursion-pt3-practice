@@ -10,9 +10,24 @@ flatten([1, 2]); // [1, 2]
 flatten([1, [2, [3]]]); // [1, 2, 3]
 ***********************************************************************/
 
+// function flatten(items) {
+//   const flat = [];
+
+//   items.forEach(item => {
+//     if (Array.isArray(item)) {
+//       flat.push(...flatten(item));
+//     } else {
+//       flat.push(item);
+//     }
+//   });
+
+//   return flat;
+// }
+
+
 function flatten(arr) {
-  // Your code here
-}
+  return arr.reduce((acc, cur) => acc.concat(Array.isArray(cur) ? flatten(cur) : cur), []);
+};
   
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 module.exports = flatten;
